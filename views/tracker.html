@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3f927bbe50.js" crossorigin="anonymous"></script>
+    <link href="/public/style.css" rel="stylesheet" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>QUEST Tracker</title>
+</head>
+<body>
+    <header class="title">
+        <div class="logo">
+            <a href="/"><h2><b>QUEST</b> <span style="font-weight: lighter;">Tracker</span></h2></a>
+        </div><!-- /.logo -->
+    </header>
+
+    <section class="chars">
+        <div class="center">
+            <% for(let i=0; i < girls.length; i++) { %>     
+            <div class="cell">
+                <div class="photo">
+                    <img src="/public/images/<%= girls[i].name %>.png" />
+                </div>
+                <!-- /.photo -->
+                <div class="status-box">
+                    <div class="status">
+                        <h3><%= girls[i].name %></h3>
+                        <p><%= girls[i].desc %></p>
+                        <p><%= girls[i].value %></p>                        
+                    </div>
+                    <!-- /.status -->
+                </div><!-- /.status-box -->
+            </div>
+            <!-- /.cell -->
+            <% } %>
+        </div>
+        <!-- /.center -->
+    </section>
+    <!-- /.chars -->
+
+    <section class="requirements">
+        <div class="center">
+            <% for(let i=0; i < reqs.length; i++) { %>     
+            <div class="cell">
+                <div class="icon">
+                    <i class="<%= reqs[i].icon %>"></i>
+                </div>
+                <!-- /.icon -->
+                <div class="status-box">
+                    <div class="status">
+                        <h3><%= reqs[i].name %></h3>
+                        <p><%= reqs[i].value %></p>                        
+                    </div>
+                    <!-- /.status -->
+                </div><!-- /.status-box -->
+                <!-- /.status -->
+            </div>
+            <!-- /.cell -->
+            <% } %>
+        </div>
+        <!-- /.center -->
+    </section>
+    <!-- /.requirements -->
+
+    <section class="busca">
+        <div class="center">
+            <div class="form-busca">
+                <div class="form-busca-day">
+                    <i class="fa-solid fa-calendar-days"></i> <span>Dia - 1</span>
+                </div>
+                <div class="form-busca-time">
+                    <form>
+                        <input name="time" type="text" placeholder="Período..." />
+                    </form>
+                </div>
+            </div>
+            <!-- /.form-busca -->
+        </div>
+        <!-- /.center -->
+    </section>
+    <!-- /.busca -->
+
+    <section class="tarefas">
+        <div class="center">
+            <div class="table-title">
+                <div class="complete">
+                    <P>OK</P>
+                </div>
+                <!-- /.complete -->       
+                <div class="local">
+                    <p>LOCAL</p>
+                </div>
+                <!-- /.local -->
+                <div class="person">
+                    <p>PERIODO</p>
+                </div>
+                <!-- /.person -->
+                <div class="quest">
+                    <p>OBJETIVO</p>
+                </div>
+                <!-- /.quest -->
+                <div class="action">
+                    <p>AÇÃO</p>
+                </div>
+                <!-- /.action -->
+            </div>
+        </div>
+        <!-- /.center -->
+        
+        <% for(let i=0; i < tasks.length; i++) { %>     
+        <div class="center">
+            <!-- /.table-line -->
+            <div class="table-line">
+                <div class="complete">
+                    <i class="fa fa-check-square" ></i>
+                </div>
+                <!-- /.complete -->       
+                <div class="local">
+                    <P><%= tasks[i].local %></P>
+                </div>
+                <!-- /.local -->
+                <div class="person">
+                    <P><%= tasks[i].time %></P>
+                </div>
+                <!-- /.person -->
+                <div class="quest">
+                    <P><%= tasks[i].quest %></P>
+                </div>
+                <!-- /.quest -->
+                <div class="action">
+                    <P><%= tasks[i].task %></P>
+                </div>
+                <!-- /.action -->
+            </div>
+            <!-- /.table-line -->
+        </div>
+        <!-- /.center -->
+        <% } %>
+
+    </section>
+    <!-- /.tarefas -->
+</body>
+</html>
