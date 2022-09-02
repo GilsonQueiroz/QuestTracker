@@ -12,6 +12,8 @@ const Tasks = require('./Tasks.js');
 const VarSaves = require('./VarSaves.js');
 const { nextTick } = require('process');
 
+var session = require('express-session');
+
 mongoose.connect('mongodb+srv://userdata:qKta8ouKum1YhGlj@cluster0.gnmx1ae.mongodb.net/Qtracker?retryWrites=true&w=majority',{useNewUrlParser:true, useUnifiedTopology:true}).then(function(){
     console.log('banco de dados conectado');
 }).catch(function(err){
@@ -22,6 +24,8 @@ app.use(bodyParser.json());             //suportar JSON-enconded bodies
 app.use(bodyParser.urlencoded({         //suportar URL-encoded bodies
     extended: true
 }));
+
+app.use(session({ secret:'casual games', cookie: { maxAge: 60000 }}));
 
 app.engine('html', require('ejs').renderFile);      //Configura tipo de renderização do arquivo
 app.set('view engine','html');                      //Configura a engine de visualização
@@ -56,6 +60,16 @@ app.get('/:slug',(req ,res)=>{
         });
     }
 });
+
+app.get('/admin/login',(res,req)=>{
+    console.log(req.session);
+    if(req.session.lo == null){
+        req.session.login = "Eu";
+        res.render('admin-login');
+    } else {
+        res.render('admin-painel');
+    }
+})
 
 app.listen(5000, ()=>{
     console.log('Servidor rodando!');
