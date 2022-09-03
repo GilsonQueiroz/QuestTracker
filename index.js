@@ -25,7 +25,10 @@ app.use(bodyParser.urlencoded({         //suportar URL-encoded bodies
     extended: true
 }));
 
-app.use(session({ secret:'casual games', cookie: { maxAge: 60000 }}));
+app.use(session({ 
+    secret:'Keep it secret', 
+    cookie: { maxAge: 60000 }
+}));
 
 app.engine('html', require('ejs').renderFile);      //Configura tipo de renderização do arquivo
 app.set('view engine','html');                      //Configura a engine de visualização
@@ -41,7 +44,7 @@ app.get('/',(req,res)=>{
 app.get('/favicon.ico',(req ,res)=>{
 });
 
-app.get('/:slug',(req ,res)=>{
+app.get('/:slug',(req, res)=>{
     if (req.query.time == null) {
         Girls.find({slug: req.params.slug}).sort('name').exec(function(err,girlsList){
             VarSaves.find({slug: req.params.slug}).sort('name').exec(function(err,varList){    
@@ -61,14 +64,28 @@ app.get('/:slug',(req ,res)=>{
     }
 });
 
-app.get('/admin/login',(res,req)=>{
-    console.log(req.session);
-    if(req.session.lo == null){
-        req.session.login = "Eu";
-        res.render('admin-login');
-    } else {
-        res.render('admin-painel');
+var usuarios = [
+    {
+        login: 'Gilson',
+        senha: '96321'
     }
+]
+
+app.get('/admin/login',(req, res)=>{
+//    if(req.session.login == null){
+//        res.render('admin-login');
+//    } else {
+        res.render('admin-painel');
+//    }
+})
+
+app.post('/admin/login',(req, res)=>{
+    usuarios.map(function(val){
+        if (val.login == req.body.login && val.senha == req.body.senha){
+            req.session.login = val.login;
+        }
+        res.redirect('/admin/login');
+    })
 })
 
 app.listen(5000, ()=>{
