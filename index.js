@@ -72,11 +72,19 @@ var usuarios = [
 ]
 
 app.get('/admin/login',(req, res)=>{
-//    if(req.session.login == null){
-//        res.render('admin-login');
-//    } else {
+    if(req.session.login == null){
+        res.render('admin-login');
+    } else {
         res.render('admin-painel');
-//    }
+    }
+})
+
+app.post('/admin/cadastro',(req,res)=>{
+    res.send('Cadastrado com sucesso');
+})
+
+app.get('/admin/deletar/:id',(req,res)=>{
+    res.send("Cadastro "+req.params.id+" deletado.")
 })
 
 app.post('/admin/login',(req, res)=>{

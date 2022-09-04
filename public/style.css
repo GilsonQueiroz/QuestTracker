@@ -6,11 +6,12 @@
 }
 
 body{
-    background-color: black;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    height: 100vh;
 }
 
 .title{
-    background-color: gray;
+    background-color: #302b63;
     padding: 10px;
     text-align: center;
     display: flex;
@@ -18,7 +19,9 @@ body{
 
 .logo{
     width: 80%;
+    color: white;
 }
+
 .back{
     width: 20%;
     text-align: right;
@@ -56,10 +59,11 @@ body{
     border-radius: 45px;
     position: absolute;
     z-index: 2;
+    border: solid 1px black;
 }
 
 .status-box{
-    background-color: #1E1E1E;
+    background-color: #302b63;
     position: absolute;
     top: 50px;
     width: 100%;
@@ -78,7 +82,7 @@ body{
 }
 
 .icon{
-    background-color: #242F35;
+    background-color:#24243e;
     width: 70px;
     height: 70px;
     border-radius: 10px;
@@ -93,18 +97,18 @@ body{
 .icon i{
     margin: 15px;
     font-size: 40px;
-    color: #237d3b;
+    color: #7881c8;
 }
 
 h2{
-    color: Black;
+    color: white;
     font-size: 30px;
 }
 
 .form-busca{
     width: 100%;
     text-align: right;
-    background-color: #242F35;
+    background-color: #24243e;
     color: white;
     padding: 10px 8px;
     border-top-left-radius: 10px;
@@ -166,7 +170,7 @@ a{
 }
 
 .table-title{
-    background-color:#242F35;
+    background-color:#24243e;
     font-weight: bolder;
     width: 100%;
     color: white;
