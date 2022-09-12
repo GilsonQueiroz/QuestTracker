@@ -18,12 +18,19 @@
     <div class="container">
         <main>  	
             <input type="checkbox" id="chk" aria-hidden="true">
-    
                 <div class="lista">
                     <label for="chk" aria-hidden="true">Lista de Saves</label>
-                    <div class="gamesaves">
-                        <p>Título do Game:</p>
-                        <a href="/admin/deletar/10"><i class="fa-solid fa-trash-can"></i></a>
+                    <div class="title-list">
+                        <div>Título do Game:</div>
+                        <div><i class="fa-solid fa-trash-can"></i></div>
+                    </div>    
+                    <div class="box-list">
+                        <% for(let i=0; i < mySaves.length; i++){ %>
+                            <div class="gamesaves">
+                                <a href="/admin/game/girls/<%= mySaves[i].slug %>"><%= mySaves[i].game %></a>
+                                <a href="/admin/deletar/<%= mySaves[i]._id %>"><i class="fa-solid fa-trash-can"></i></a>
+                            </div>
+                        <% } %>
                     </div>
                 </div>
     

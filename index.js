@@ -75,16 +75,26 @@ app.get('/admin/login',(req, res)=>{
     if(req.session.login == null){
         res.render('admin-login');
     } else {
-        res.render('admin-painel');
+        Games.find({}).sort({'game':1}).exec(function(err, myGames){
+            res.render('admin-painel',{mySaves: myGames});
+        })
     }
 })
 
 app.post('/admin/cadastro',(req,res)=>{
-    res.send('Cadastrado com sucesso');
+    Games.create({
+        game: req.body.game_name,
+        slug: req.body.game_slug,
+        initialDay: req.body.initial_day,
+        actualDay: req.body.actual_day
+    });
+    res.redirect('/admin/login');
 })
 
 app.get('/admin/deletar/:id',(req,res)=>{
-    res.send("Cadastro "+req.params.id+" deletado.")
+    Games.deleteOne({_id:req.params.id}).then(function(){
+        res.redirect('/admin/login');
+    });
 })
 
 app.post('/admin/login',(req, res)=>{
