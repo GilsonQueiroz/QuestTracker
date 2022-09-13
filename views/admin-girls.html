@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3f927bbe50.js" crossorigin="anonymous"></script>
+    <link href="/public/styleAdmin.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <title>Cadastrar Game</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/"><h2><b>QUEST</b> <span style="font-weight: lighter;">Tracker</span></h2></a>
+        </div><!-- /.logo -->
+    </header>
+    <div class="container">
+        <main>  	
+            <input type="checkbox" id="chk" aria-hidden="true">
+                <div class="lista">
+                    <label for="chk" aria-hidden="true">Lista de Saves</label>
+                    <div class="title-list">
+                        <div>Título do Game:</div>
+                        <div><i class="fa-solid fa-trash-can"></i></div>
+                    </div>    
+                    <div class="box-list">
+                        <% for(let i=0; i < mySaves.length; i++){ %>
+                            <div class="gamesaves">
+                                <a href="/admin/game/girls/<%= mySaves[i].slug %>"><%= mySaves[i].game %></a>
+                                <a href="/admin/deletar/<%= mySaves[i]._id %>"><i class="fa-solid fa-trash-can"></i></a>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+    
+                <div class="cadastro">
+                    <form method="post" action="/admin/cadastro">
+                        <label for="chk" aria-hidden="true">Cadastrar Game</label>
+                        <input type="text" name="game_name" placeholder="Nome do Save..." required="" />
+                        <input type="text" name="game_slug" placeholder="Slug..." required="" />
+                        <div class="double">
+                            <input type="number" name="initial_day" placeholder="Dia Inicial..." required="" />
+                            <input type="number" name="actual_day" placeholder="Dia Atual..." required="" />
+                        </div>
+                        <input type="submit" name="acao" value="Cadastrar" />
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
