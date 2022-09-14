@@ -6,10 +6,9 @@ body{
 }
 
 .container{
-	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-height: 94vh;
+	min-height: 90.6vh;
 }
 
 .double{
@@ -35,11 +34,13 @@ body{
 #chk{
 	display: none;
 }
+
 .lista{
 	position: relative;
 	width:100%;
 	height: 100%;
 }
+
 label{
 	color: #fff;
 	font-size: 2.3em;
@@ -51,6 +52,7 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
+
 input{
 	width: 60%;
 	height: 20px;
@@ -63,6 +65,7 @@ input{
 	outline: none;
 	border-radius: 5px;
 }
+
 input[type=submit]{
 	width: 60%;
 	height: 40px;
@@ -80,9 +83,11 @@ input[type=submit]{
 	transition: .2s ease-in;
 	cursor: pointer;
 }
+
 input[type=submit]:hover{
 	background: #6d44b8;
 }
+
 .cadastro{
 	height: 660px;
 	background: #eee;
@@ -90,6 +95,7 @@ input[type=submit]:hover{
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
+
 .cadastro label{
 	color: #573b8a;
 	transform: scale(.6);
@@ -98,9 +104,11 @@ input[type=submit]:hover{
 #chk:checked ~ .cadastro{
 	transform: translateY(-700px);
 }
+
 #chk:checked ~ .cadastro label{
 	transform: scale(1);	
 }
+
 #chk:checked ~ .lista label{
 	transform: scale(.6);
 }
@@ -116,8 +124,9 @@ header{
 }
 
 main{
+	margin: 0px auto;
 	width: 1200px;
-    height: 700px;
+    height: 650px;
 	background: red;
 	overflow: hidden;
 	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
@@ -125,10 +134,41 @@ main{
 	box-shadow: 5px 20px 50px #000;
 }
 
+nav{
+	margin: 30px auto;
+	width: 1140px;
+    height: 60px;
+	overflow: hidden;
+	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+	border-radius: 10px;
+	box-shadow: 5px 20px 50px #000;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+	font-size: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+nav a{
+	color: white;
+	margin-top: 15px;
+}
+
+nav a:hover{
+	color: yellow;
+}
+
+.space{
+	margin: 30px auto;
+	width: 1200px;
+    height: 60px;
+	overflow: hidden;
+}
+
 .title{
     text-align: center;
 }
-
 
 a{
     text-decoration: none;
@@ -191,7 +231,6 @@ span{
 .gamesaves a:hover{
 	color: yellow;
 }
-
 
 .box-list{
 	height: 57vh;

@@ -81,6 +81,15 @@ app.get('/admin/login',(req, res)=>{
     }
 })
 
+app.post('/admin/login',(req, res)=>{
+    usuarios.map(function(val){
+        if (val.login == req.body.login && val.senha == req.body.senha){
+            req.session.login = val.login;
+        }
+        res.redirect('/admin/login');
+    })
+})
+
 app.post('/admin/cadastro',(req,res)=>{
     Games.create({
         game: req.body.game_name,
@@ -97,14 +106,13 @@ app.get('/admin/deletar/:id',(req,res)=>{
     });
 })
 
-app.post('/admin/login',(req, res)=>{
-    usuarios.map(function(val){
-        if (val.login == req.body.login && val.senha == req.body.senha){
-            req.session.login = val.login;
-        }
-        res.redirect('/admin/login');
-    })
+//Girls
+app.get('/admin/girls/:slug',(req, res)=>{
+    Girls.find({slug: req.params.slug}).sort({'name':1}).exec(function(err, girlsList){
+        res.render('admin-girls',{girls: girlsList});
+    });    
 })
+
 
 app.listen(5000, ()=>{
     console.log('Servidor rodando!');

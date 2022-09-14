@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/3f927bbe50.js" crossorigin="anonymous"></script>
     <link href="/public/styleAdmin.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-    <title>Cadastrar Game</title>
+    <title>Cadastrar Garotas</title>
 </head>
 <body>
     <header>
@@ -16,19 +16,26 @@
         </div><!-- /.logo -->
     </header>
     <div class="container">
-        <main>  	
+        <nav class="Menu">
+            <a href="">Garotas</a>
+            <a href="">Variáveis</a>
+            <a href="">Tarefas</a>
+            <a href="">Dependências</a>
+            <a href="">Objetivos</a>
+        </nav>
+        <main>
             <input type="checkbox" id="chk" aria-hidden="true">
                 <div class="lista">
                     <label for="chk" aria-hidden="true">Lista de Saves</label>
                     <div class="title-list">
-                        <div>Título do Game:</div>
+                        <div>Lista de Personagens:</div>
                         <div><i class="fa-solid fa-trash-can"></i></div>
                     </div>    
                     <div class="box-list">
-                        <% for(let i=0; i < mySaves.length; i++){ %>
+                        <% for(let i=0; i < girls.length; i++){ %>
                             <div class="gamesaves">
-                                <a href="/admin/game/girls/<%= mySaves[i].slug %>"><%= mySaves[i].game %></a>
-                                <a href="/admin/deletar/<%= mySaves[i]._id %>"><i class="fa-solid fa-trash-can"></i></a>
+                                <a href=""><%= girls[i].name %></a>
+                                <a href=""><i class="fa-solid fa-trash-can"></i></a>
                             </div>
                         <% } %>
                     </div>
@@ -36,7 +43,7 @@
     
                 <div class="cadastro">
                     <form method="post" action="/admin/cadastro">
-                        <label for="chk" aria-hidden="true">Cadastrar Game</label>
+                        <label for="chk" aria-hidden="true">Cadastrar Garota</label>
                         <input type="text" name="game_name" placeholder="Nome do Save..." required="" />
                         <input type="text" name="game_slug" placeholder="Slug..." required="" />
                         <div class="double">
